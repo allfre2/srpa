@@ -1,0 +1,16 @@
+*
+######################
+# srpa | Simple RPA  #
+######################
+
+!.gitignore
+!README.md
+!main.py
+!sample.json
+
+!modules/
+!modules/*
+!modules/**
+
+# Ignore
+modules/__pycache__
