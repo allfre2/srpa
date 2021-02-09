@@ -6,11 +6,18 @@
 !.gitignore
 !README.md
 !main.py
-!sample.json
+!package.bat
 
 !modules/
 !modules/*
 !modules/**
 
+!sample/
+!sample/*
+!sample/**
+
 # Ignore
 modules/__pycache__
+__pycache__/
+build/
+dist/

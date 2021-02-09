@@ -1,0 +1,33 @@
+{
+    "name": "RPA script sample #2",
+    "author": "Ada Lovelace",
+    "about": "Ingresa al portal etudiantil de UNAPEC, se loguea y luego sale.",
+    "variables": {
+        "unapecEstudiantil": "https://estudiantil.unapec.edu.do/",
+        "email": "00000000@unapec.edu.do",
+        "password": "xxxxxxxxxx",
+        "botonAcceso": "ACCESO",
+        "loginInputName": "loginfmt",
+        "passwordInputName": "passwd",
+        "idBotonMantenerSesion": "idSIButton9",
+        "botonSalir": "Salir"
+    },
+    "parameters": {},
+    "script": [
+        ["get", "$unapecEstudiantil"],
+        ["select", "link_text", "$botonAcceso"],
+        ["click"],
+        ["wait", 3],
+        ["select", "name", "$loginInputName"],
+        ["input", "$email"],
+        ["return"],
+        ["wait", 3],
+        ["select", "name", "$passwordInputName"],
+        ["input", "$password"],
+        ["return"],
+        ["select", "id", "$idBotonMantenerSesion"],
+        ["click"],
+        ["select", "link_text", "$botonSalir"],
+        ["close"]
+    ]
+}

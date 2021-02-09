@@ -1,0 +1,60 @@
+name: "RPA test #1"
+author: "Guido Van Rossum"
+about: "Paga la universidad de manera automática"
+variables:
+    email: "00000000@unapec.edu.do"
+    password: "xxxxxxxxxx"
+    creditcard: "XXXXXXXXXXXXXXXX"
+    expirationMonth: "1"
+    expirationYear: "2021"
+    cvv: "111"
+
+    pagosenlinea: "https://pagos.unapec.edu.do/"
+    classBotonPagoEnLinea: "pago-en-linea"
+    classBotonIniciarSesion: "iniciar-sesion"
+    loginInputName: "loginfmt"
+    passwordInputName: "passwd"
+    idBotonMantenerSesion: "idSIButton9"
+    balancePendiente: "https://pagos.unapec.edu.do/Main/Balance"
+    classBotonPagar: "btnCotejo"
+    classCheckTerminosYCondiciones: "chkterminos"
+    classBotonConfirmarPago: "btnpagar"
+    idInputCreditCard: "Information_CreditCard"
+    idCardExpirationMonth: "Information_ExpirationMonth"
+    idCardExpirationYear: "Information_ExpirationYear"
+    idCvv: "Information_CVV"
+    classBotonProcesarPago: "btnprocesar"
+
+parameters: {}
+script: [
+        ["delay", 1],
+        ["get", "$pagosenlinea"],
+        ["select", "class", "$classBotonIniciarSesion"],
+        ["click"],
+        ["select", "name", "$loginInputName"],
+        ["input", "$email"],
+        ["return"],
+        ["select", "name", "$passwordInputName"],
+        ["input", "$password"],
+        ["return"],
+        ["select", "id", "$idBotonMantenerSesion"],
+        ["click"],
+        ["get", "$balancePendiente"],
+        ["select", "class", "$classBotonPagar"],
+        ["click"],
+        ["select", "class", "$classCheckTerminosYCondiciones"],
+        ["click"],
+        ["select", "class", "$classBotonConfirmarPago"],
+        ["click"],
+        ["select", "id", "$idInputCreditCard"],
+        ["input", "$creditcard"],
+        ["select", "id", "$idCardExpirationMonth"],
+        ["input", "$expirationMonth"],
+        ["select", "id", "$idCardExpirationYear"],
+        ["input", "$expirationYear"],
+        ["select", "id", "$idCvv"],
+        ["input", "$cvv"],
+        ["select", "class", "$classBotonProcesarPago"],
+        ["click"],
+        ["wait", 25]
+    ]
